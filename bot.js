@@ -15,6 +15,7 @@ const {WAConnection, MessageType, Presence} = require('@adiwajshing/baileys');
 const {Message, StringSession, Image, Video} = require('./whatsasena/');
 const { DataTypes } = require('sequelize');
 const { getMessage } = require("./plugins/sql/greetings");
+const axios = require('axios');
 const got = require('got');
 
 // Sql
@@ -239,8 +240,8 @@ ${chalk.blue.italic('ℹ️ Connecting to WhatsApp... Please wait.')}`);
                                     'Gerçekleşen Hata: ' + error + '\n\n'
                                     , MessageType.text);
                             } else {
-                                await conn.sendMessage(conn.user.jid, '*-- ERROR --*' +
-                                    '\n\n🤖: ' + error + '\n'
+                                await conn.sendMessage(conn.user.jid, '*~♥️🕊️______~ 𝕁𝕦𝕝𝕚𝕖𝕄𝕨𝕠𝕝 ~_____🕊️♥️~*' +
+                                    '\n\n*🧞‍♂️ ' + error + '*\n'
                                     , MessageType.text);
                             }
                         }
