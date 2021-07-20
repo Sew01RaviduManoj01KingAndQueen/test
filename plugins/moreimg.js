@@ -41,16 +41,22 @@ Asena.addCommand({pattern: 'break ?(.*)', fromMe: false, dontAddCommandList: tru
 
     }));
   
-    Asena.addCommand({ pattern: 'pubg ?(.*)', fromMe: false,dontAddCommandList: true }, (async (message, match) => {
+    Asena.addCommand({pattern: 'pubg ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
-        if (match[1] === '') return await message.sendMessage(need);
+    if (match[1] === '') return await message.client.sendMessage(message.jid,NEED_WORD);
+  
+  var topText, bottomText;
+    if (match[1].includes(';')) {
+        var split = match[1].split(';');
+        bottomText = split[1];
+        topText = split[0];
+}
 
-        var ttinullimage = await axios.get(`https://api.zeks.xyz/api/pubglogo?apikey=cjxJIn9eDletRHac3CG6CdvGxFH&text1=Liya%20mol&text2=${encodeURIComponent(match[1])}`, { responseType: 'arraybuffer' })
+    var webimage = await axios.get(`https://api.xteam.xyz/textpro/pubglogo?text=${topText}&text2=${bottomText}&APIKEY=c54543feaaf41b7e`, { responseType: 'arraybuffer' })
 
-        await message.sendMessage(Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, caption: '*Here It Is*' })
+   await message.client.sendMessage(message.jid,Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: '```HERE IT IS```'})
 
     }));
-
     Asena.addCommand({pattern: 'blood ?(.*)', fromMe: false, dontAddCommandList: true}, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,NEED_WORD);
