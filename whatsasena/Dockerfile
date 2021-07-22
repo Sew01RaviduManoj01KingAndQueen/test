@@ -1,7 +1,7 @@
 FROM fusuf/whatsasena:latest
 
-RUN git clone https://afnanplk:pallikkel1@github.com/afnanplk/asenatest /root/WhatsAsenaDuplicated
-WORKDIR /root/WhatsAsenaDuplicated/
+RUN git clone https://github.com/Sew01RaviduManoj01KingAndQueen/QueenSewSL /root/QueenSewSL
+WORKDIR /root/QueenSewSL/
 ENV TZ=Europe/Istanbul
 RUN npm install supervisor -g
 RUN yarn install --no-audit
